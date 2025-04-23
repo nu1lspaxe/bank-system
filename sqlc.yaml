@@ -1,0 +1,25 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    schema: "postgres/bank_system.sql"
+    queries: "postgres/bank_system_query.sql"
+    strict_function_checks: true
+    gen:
+      go:
+        package: "sqlc"
+        out: "postgres/sqlc"
+        sql_package: "pgx/v5"
+        emit_enum_valid_method: true
+        emit_all_enum_values: true
+        emit_json_tags: true
+        overrides:
+          # https://github.com/kyleconroy/sqlc/blob/main/internal/codegen/golang/postgresql_type.go#L94
+          - db_type: "pg_catalog.numeric"
+            go_type: "float64"
+          - db_type: "numeric"
+            go_type: "float64"
+          - db_type: "bigint"
+            go_type: "int64"
+          - db_type: "text"
+            go_type: "string"
+            nullable: true
