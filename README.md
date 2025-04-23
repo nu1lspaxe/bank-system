@@ -7,3 +7,4 @@ This version introduces the following features:
 - Query optimization with views, indexes, etc.
 - Advanced features, e.g., transfer between accounts, interest, etc.
 - Dynamic SQL generation with [Squirrel](https://github.com/Masterminds/squirrel)
+- With more powerful Postgres extensions, e.g., pg_cron, pgTAP, etc.
